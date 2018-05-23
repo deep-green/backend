@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "node"
+
+notifications:
+  email: false
+
+cache:
+  directories:
+    - "node_modules"
+
+# Kann entfernt werden sobald es eine package.json gibt
+before_script:
+  - npm install jest
