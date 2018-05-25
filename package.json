@@ -5,7 +5,7 @@
   "main": "lib/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/deep-green/backend"
+    "url": "https://github.com/deep-green/backend.git"
   },
   "author": "Tobias Koppmann <tobias.koppmann@gmail.com>",
   "license": "MIT",
@@ -13,6 +13,10 @@
     "neon-cli": "^0.1.22"
   },
   "scripts": {
-    "install": "neon build"
+    "install": "neon build",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.0.0"
   }
 }
