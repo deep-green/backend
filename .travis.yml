@@ -1,15 +1,22 @@
 language: node_js
 
 node_js:
-  - "node"
+  - "8"
 
 notifications:
-  email: false
+  email: 
+    - tobias.koppmann@gmail.com
 
 cache:
   directories:
     - "node_modules"
 
-# Kann entfernt werden sobald es eine package.json gibt
-before_script:
-  - npm install jest
+before_install:
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - source "$HOME/.cargo/env"
+
+install:
+  - npm install
+
+script:
+  - npm test

@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "description": "The Deep Green Backend Module - providing and managing game data and checking rules",
+  "main": "lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-green/backend.git"
+  },
+  "author": "Tobias Koppmann <tobias.koppmann@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "neon-cli": "^0.1.22"
+  },
+  "scripts": {
+    "install": "neon build",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.0.0"
+  }
+}
