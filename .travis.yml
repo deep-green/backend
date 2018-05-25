@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "node"
+  - "8"
 
 notifications:
   email: 
@@ -10,3 +10,14 @@ notifications:
 cache:
   directories:
     - "node_modules"
+
+before_install:
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - source "$HOME/.cargo/env"
+
+install:
+  - npm install
+  - npm run build
+
+script:
+  - npm test
