@@ -11,12 +11,14 @@ cache:
   directories:
     - "node_modules"
 
-before_install:
-  - curl https://sh.rustup.rs -sSf | sh -s -- -y
-  - source "$HOME/.cargo/env"
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "node"
 
-install:
-  - npm install
-
-script:
-  - npm test
+    - language: rust
+      install:
+        - npm install --global neon-cli
+      script:
+        - "neon build"
