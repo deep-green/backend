@@ -1,4 +1,4 @@
-test('the rust function generateMoves() returns "hello node"', () => {
+test('the rust function getMoves() returns "hello node"', () => {
     var moveGenerator = require('../native');
     expect(moveGenerator.getMoves()).toEqual("hello node");
 });
