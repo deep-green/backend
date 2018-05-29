@@ -10,13 +10,16 @@
   "author": "Tobias Koppmann <tobias.koppmann@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "neon-cli": "^0.1.22"
+    "neon-cli": "^0.1.22",
+    "socket.io": "^2.1.1"
   },
   "scripts": {
     "install": "neon build",
-    "test": "jest"
+    "test": "jest",
+    "create-docs": "jsdoc -r -R README.md -c jsdocConf.json -d docs --verbose"
   },
   "devDependencies": {
-    "jest": "^23.0.0"
+    "jest": "^23.0.0",
+    "jsdoc": "^3.5.5"
   }
 }
