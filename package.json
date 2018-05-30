@@ -10,6 +10,7 @@
   "author": "Tobias Koppmann <tobias.koppmann@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.3",
     "neon-cli": "^0.1.22",
     "socket.io": "^2.1.1"
   },
