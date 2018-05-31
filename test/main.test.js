@@ -1,6 +1,7 @@
 const io_client = require('socket.io-client');
 const http = require('http');
 const io_backend = require('socket.io');
+const dg_interface = require('../lib/dg_interface')
 
 const server_port = 4999;
 
@@ -29,22 +30,6 @@ afterAll((done) => {
 });
 
 /**
- * new connection for each test
- */
-beforeEach((done) => {
-    // square brackets are used for IPv6
-    socket = io_client.connect(`http://[${httpServerAddr.address}]:${httpServerAddr.port}`, {
-        'reconnection delay': 0,
-        'reopen delay': 0,
-        'force new connection': true,
-        transports: ['websocket'],
-    });
-    socket.on('connect', () => {
-        done();
-    });
-});
-
-/**
  * close connection after each test
  */
 afterEach((done) => {
@@ -55,11 +40,33 @@ afterEach((done) => {
     done();
 });
 
+/**
+ * new connection for each test
+ */
+beforeEach(() => {
+    // square brackets are used for IPv6
+    socket = io_client.connect(`http://[${httpServerAddr.address}]:${httpServerAddr.port}`, {
+        'reconnection delay': 0,
+        'reopen delay': 0,
+        'force new connection': true,
+        transports: ['websocket'],
+    });
+});
+
 /** 
  * all defined commands for deep-green interface 
  */ 
-describe('socket.io communication', () => {
-  
+describe('socket.io general communication', () => {
+
+    /**
+     * new connection for each test
+     */
+    beforeEach((done) => {
+        socket.on('connect', () => {
+            done();
+        });
+    });
+
     test('should communicate', (done) => {
         // once connected, emit Hello World
         ioServer.emit('echo', 'Hello World');
@@ -79,5 +86,20 @@ describe('socket.io communication', () => {
 
 
 
+describe('[backend -> client] interface communication', () => {
+
+    /**
+     * new connection for each test
+     */
+    beforeEach((done) => {
+        socket.on('connect', () => {
+            done();
+        });
+    });
+
+});
 
 
+
+describe('[client -> backend] interface communication', () => {
+});
