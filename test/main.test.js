@@ -237,6 +237,24 @@ describe('[client -> backend] interface communication', () => {
 
     });
 
+    test('backend gets valid "newGame"', (done) => {
+        let check_data = {
+            "ID_enemy": "maxmustermann",
+            "color": false,
+            "FEN": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+          };
+        
+        socket.on('connect', () => {
+            socket.emit('newGame', check_data);
+            done();
+        })
+    
+        ioServer.on('newGame', (data) => {
+            expect(dg_interface.check_newGame(data)).toBeTruthy;
+        });
+
+    });
     
 
 });
