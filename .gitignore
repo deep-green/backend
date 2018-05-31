@@ -13,8 +13,8 @@ Icon
 /docs
 
 # testfiles
-/test/back2client.js
-/test/client2back.js
+/test/back2client.test.js
+/test/client2back.test.js
 
 # Thumbnails
 ._*
