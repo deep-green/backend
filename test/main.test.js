@@ -97,9 +97,73 @@ describe('[backend -> client] interface communication', () => {
         });
     });
 
+    test('client gets valid "invitation" from backend', (done) => {
+        let check_data = {
+            "FEN": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+            "ID_enemy": "maxmustermann"
+        };
+        
+        ioServer.emit('invitation', dg_interface.emit_invitation('',''));
+    
+        socket.once('invitation', (data) => {
+            expect(data).toEqual(check_data);
+            done();
+        });
+
+    });
+
+    test('client gets valid "reject" from backend', (done) => {
+        let check_data = { };
+        
+        ioServer.emit('reject', dg_interface.emit_reject());
+    
+        socket.once('reject', (data) => {
+            expect(data).toEqual(check_data);
+            done();
+        });
+
+    });
+
+    test('client gets valid "receive" from backend', (done) => {
+        let check_data = {
+            "FEN": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+            "ID_game": 2,
+            "color": false,
+            "turns": [
+              "e2e4",
+              "c2c4"
+            ]
+          };
+        
+        ioServer.emit('receive', dg_interface.emit_receive());
+    
+        socket.once('receive', (data) => {
+            expect(data).toEqual(check_data);
+            done();
+        });
+
+    });
+
+    test('client gets valid "end" from backend', (done) => {
+        let check_data = {
+            "reason": "connection lost",
+            "ID_game": 2,
+            "ID_player": "heinrichmustermann"
+          };
+        
+        ioServer.emit('end', dg_interface.emit_end());
+    
+        socket.once('end', (data) => {
+            expect(data).toEqual(check_data);
+            done();
+        });
+
+    });
+
 });
 
 
 
 describe('[client -> backend] interface communication', () => {
+
 });
