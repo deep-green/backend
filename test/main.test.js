@@ -201,4 +201,23 @@ describe('[client -> backend] interface communication', () => {
         });
 
     });
+
+    test('backend gets valid "image"', (done) => {
+        let check_data = {
+            "image": "fileserver/images/image.png",
+            "color": false,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+        };
+        
+        socket.on('connect', () => {
+            socket.emit('image', check_data);
+            done();
+        })
+    
+        ioServer.on('image', (data) => {
+            expect(dg_interface.check_image(data)).toBeTruthy;
+        });
+
+    });
+
 });
