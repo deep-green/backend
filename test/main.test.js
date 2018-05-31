@@ -272,6 +272,24 @@ describe('[client -> backend] interface communication', () => {
         });
 
     });
+
+    test('backend gets valid "saveTurn"', (done) => {
+        let check_data = {
+            "ID_game": 2,
+            "turn": 4,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"   
+          }
+        
+        socket.on('connect', () => {
+            socket.emit('saveTurn', check_data);
+            done();
+        })
+    
+        ioServer.on('saveTurn', (data) => {
+            expect(dg_interface.check_newGame(data)).toBeTruthy;
+        });
+
+    });
     
 
 });
