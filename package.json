@@ -10,6 +10,7 @@
   "author": "Tobias Koppmann <tobias.koppmann@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.3",
     "neon-cli": "^0.1.22",
     "socket.io": "^2.1.1"
   },
@@ -20,6 +21,11 @@
   },
   "devDependencies": {
     "jest": "^23.0.0",
-    "jsdoc": "^3.5.5"
+    "jsdoc": "^3.5.5",
+    "socket.io-client": "^2.1.1"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
   }
 }
