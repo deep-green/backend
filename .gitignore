@@ -12,6 +12,10 @@ Icon
 # documentation
 /docs
 
+# testfiles
+/test/back2client.js
+/test/client2back.js
+
 # Thumbnails
 ._*
 
