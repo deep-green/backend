@@ -183,4 +183,22 @@ describe('[client -> backend] interface communication', () => {
         });
 
     });
+
+    test('backend gets valid "rewind"', (done) => {
+        let check_data = {
+            "ID_game": 2,
+            "turnCount": 4,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+        };
+        
+        socket.on('connect', () => {
+            socket.emit('rewind', check_data);
+            done();
+        })
+    
+        ioServer.on('rewind', (data) => {
+            expect(dg_interface.check_rewind(data)).toBeTruthy;
+        });
+
+    });
 });
