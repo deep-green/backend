@@ -26,7 +26,6 @@
   },
   "jest": {
     "verbose": true,
-    "collectCoverage": true,
-    "coverageDirectory": "/cov/"
+    "collectCoverage": true
   }
 }
