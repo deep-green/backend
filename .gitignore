@@ -204,3 +204,5 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/node,rust,macos,windows,webstorm+all
+
+ki_com_test\.js
