@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
-    "neon-cli": "^0.1.22",
+    "neon-cli": "^0.1.23",
     "socket.io": "^2.1.1"
   },
   "scripts": {
@@ -20,7 +20,7 @@
     "create-docs": "jsdoc -r -R README.md -c jsdocConf.json -d docs --verbose"
   },
   "devDependencies": {
-    "jest": "^23.0.0",
+    "jest": "^23.1.0",
     "jsdoc": "^3.5.5",
     "socket.io-client": "^2.1.1"
   },
