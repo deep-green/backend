@@ -1,0 +1,3 @@
+[submodule "computervision"]
+	path = computervision
+	url = https://github.com/deep-green/computervision.git
