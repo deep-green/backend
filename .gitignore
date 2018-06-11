@@ -210,3 +210,5 @@ ki_com_test\.js
 test/local/back2client\.test\.js
 
 test/local/client2back\.test\.js
+
+\.vscode/
