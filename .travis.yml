@@ -9,9 +9,7 @@ cache:
 before_install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - source "$HOME/.cargo/env"
-  - sudo apt-get install python3
-  - sudo apt-get install python-opencv
-  
+
 install:
   - npm install
 
