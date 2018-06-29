@@ -1,3 +1,8 @@
-test('dummy', () => {
-    expect(true).toBeTruthy;
+
+
+describe('socket.io general communication', () => {
+
+    test('dummy', () => {
+        expect(true).toBeTruthy;
+    });
 });
