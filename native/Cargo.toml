@@ -14,3 +14,4 @@ neon-build = "0.1.22"
 
 [dependencies]
 neon = "0.1.22"
+chess = "0.4.3"
