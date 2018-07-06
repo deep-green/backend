@@ -5,13 +5,13 @@ extern crate chess;
 
 use neon::vm::{Call, JsResult, This, FunctionCall};
 use neon::js::{JsString, Value};
-use chess::{Chess};
+//use chess::{Chess};
 
-fn test() {
-    let pos = Chess::default();
-    let legals = pos.legals();
-    assert_eq!(legals.len(), 20);
-}
+//fn test() {
+//    let pos = Chess::default();
+//    let legals = pos.legals();
+//    assert_eq!(legals.len(), 20);
+//}
 
 /*
 fn get_move(mut call: Call) -> JsResult<JsString> {
