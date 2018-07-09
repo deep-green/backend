@@ -6,12 +6,16 @@ pub fn get_moves(fen: String) -> String {
     let board: Board = Board::from_fen(fen).unwrap();
     let iterable: MoveGen = MoveGen::new(board, true);
 
-    let mut ret: String = "[".to_string();
+    let mut ret: String = "".to_string();
     let mut count: usize = 0;
     let size: usize = iterable.len();
 
-    for item in iterable {
-        ret.push_str(&item.to_string());
+    for mut item in iterable {
+        let i = item.to_string();
+        let mut split = i.split("-").collect::<Vec<&str>>();
+
+        ret.push_str(&split.pop().unwrap());
+        ret.push_str(&split.pop().unwrap());
 
         if count < size - 1 {
             ret.push_str(&", ");
@@ -19,8 +23,6 @@ pub fn get_moves(fen: String) -> String {
 
         count += 1;
     }
-
-    ret.push_str(&"]");
 
     return ret;
 }
