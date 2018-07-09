@@ -204,3 +204,5 @@ $RECYCLE.BIN/
 ki_com_test\.js
 
 \.vscode/
+
+**/test/local
