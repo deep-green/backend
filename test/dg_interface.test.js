@@ -2,10 +2,6 @@ const dg_interface = require('../lib/dg_interface');
 
 describe('socket.io general communication', () => {
 
-    test('dummy', () => {
-        expect(true).toBeTruthy;
-    });
-
     test('move generator', () => {
         let expectedData = {
             FEN: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
