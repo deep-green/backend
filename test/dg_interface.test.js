@@ -1,9 +1,18 @@
 /** @module dg_interface.test */
+
 const dg_interface = require('../lib/dg_interface');
 
-describe('socket.io general communication', () => {
+describe('emitting functions for socket.io outgoing events', () => {
 
-    test('move generator', () => {
+    test('emit_reject() should return empty object', ()=> {
+        let expectedData = {};
+
+        let data = dg_interface.emit_reject();
+
+        expect(data).toEqual(expectedData);
+    });
+
+    test('emit_receive() should return correct moves', () => {
         let expectedData = {
             FEN: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
             ID_game: 1,
@@ -36,4 +45,62 @@ describe('socket.io general communication', () => {
         
         expect(data).toEqual(expectedData);
     });
+    
+    test('emit_end() should return correct object', ()=> {
+        let testReason = "connection lost";
+        let testID_game = 2;
+        let testID_Player = "heinrichmustermann";
+        
+        let expectedData = {
+            reason: testReason,
+            ID_game: testID_game,
+            ID_Player: testID_Player
+        };
+
+        let data = dg_interface.emit_end(testReason, testID_game, testID_Player);
+
+        expect(data).toEqual(expectedData);
+    });
+    
+    test('emit_register() should return correct object', ()=> {
+        let expectedData = {};
+
+        let data = dg_interface.emit_register();
+
+        expect(data).toEqual(expectedData);
+    });
+    
+    test('emit_guestLogin() should return correct object', ()=> {
+        let expectedData = {};
+
+        let data = dg_interface.emit_guestLogin();
+
+        expect(data).toEqual(expectedData);
+    });
+    
+    test('emit_invitation() should return correct object', ()=> {
+        let expectedData = {};
+
+        let data = dg_interface.emit_invitation();
+
+        expect(data).toEqual(expectedData);
+    });
+    
+    test('emit_accept() should return correct object', ()=> {
+        let expectedData = {};
+
+        let data = dg_interface.emit_accept();
+
+        expect(data).toEqual(expectedData);
+    });
+    
+    test('emit_get() should return empty object (no DB connection)', (done)=> {
+        let expectedData = {};
+
+        let data = dg_interface.emit_getGames();
+
+        expect(data).not.toEqual(expectedData);
+        done();
+    });
+    
 });
