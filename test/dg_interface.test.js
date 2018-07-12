@@ -1,3 +1,4 @@
+/** @module dg_interface.test */
 const dg_interface = require('../lib/dg_interface');
 
 describe('socket.io general communication', () => {
